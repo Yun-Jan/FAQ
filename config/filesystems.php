@@ -55,6 +55,14 @@ return [
             'visibility' => 'public',
         ],
 
+        'uploads'=> [
+            'driver' => 'local',
+            //'root' => storage_path('app/uploadfile'),
+            //'url' => env('APP_URL').'/storage',
+            'root'=>public_path('uploads')
+
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -62,6 +70,7 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+
         ],
 
     ],
