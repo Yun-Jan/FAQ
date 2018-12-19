@@ -11,7 +11,7 @@ To run the FAQ project;
 
  
  
- #Feature: Upload a File
+# Feature: Upload a File
  
 User story 1: As an employee, I want to upload a document, so that I can submit the work I have done.
  
@@ -24,6 +24,5 @@ User story 4: As a manager, I want to upload a report, so that I can save it int
 User story 5: As a student, I want to upload my project, so that I can submit the assignment.
 
 
-
-#Link
+# Link
 Heroku: https://myfaqpart1.herokuapp.com/
