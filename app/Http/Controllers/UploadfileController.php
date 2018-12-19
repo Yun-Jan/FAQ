@@ -17,32 +17,40 @@ class UploadfileController extends Controller
     public function upload(Request $request)
     {
 
-        if ($request->isMethod('POST')){
+        if($request->isMethod('POST')){
+
             //var_dump($_FILES);
             $file=$request->file('file');
 
-            //If file uploaded successfully
             if ($file->isValid()){
-                //original file name
-                $originalNmae=$file->getClientOriginalName();
-                //extension file name
-                $extension=$file->getClientOriginalExtension();
+                // Original file name
+                $originalName=$file->getClientOriginalName();
+                //Extension file name
+                $extension= $file->getClientOriginalExtension();
                 //MineType
                 $type=$file->getClientMimeType();
                 //Temporary path
                 $realPath=$file->getRealPath();
 
                 $filename=date('Y-m-d-H-i-s') . '-' . uniqid() . '.' . $extension;
-                $bool=Storage::disk('uploads')->put($filename, file_get_contents($realPath));
+                $bool =Storage::disk('uploads')->put($filename, file_get_contents($realPath));
+                return back()->with('message','File Uploaded Successfully!' );
 
-                var_dump($bool);
-                echo ('File Uploaded Successfully!');
+                //var_dump($bool);
+
             }
-            exit;
-        }
-        return view('uploadfile');
 
+
+            exit;
+
+
+        }
+
+
+        return view('uploadfile');
     }
+
+
 
 
 }
