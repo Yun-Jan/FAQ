@@ -16,9 +16,10 @@ Route::get('/', function () {
 });
 Auth::routes();
 
+Route::get('/uploadfile','UploadfileController@index');
 Route::view('/', 'welcome');
-Route::view('/uploadfile','uploadfile');
-Route::post('uploadfile/store', 'UploadfileController@store')->name('uploadfile.create');
+Route::view('/uploadfile','uploadfile')->name('uploadfile.show');
+Route::any('uploadfile/store', 'UploadfileController@upload')->name('uploadfile.create');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
