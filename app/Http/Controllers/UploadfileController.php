@@ -40,7 +40,6 @@ class UploadfileController extends Controller
 
             }
 
-
             exit;
 
 
