@@ -24,6 +24,8 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function create($question)
     {
         $answer = new Answer;
