@@ -61,7 +61,7 @@
                                 My Account <span class="caret"></span>
                             </a>
 
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @if (Auth::user()->profile)
                                     <a class="dropdown-item" href="{{ route('profile.show', ['user_id' => Auth::user()->id,'profile_id' => Auth::user()->profile->id]) }}">My Profile</a>
 
@@ -69,8 +69,14 @@
                                     <a class="dropdown-item" href="{{ route('profile.create', ['user_id' => Auth::user()->id]) }}">Create Profile</a>
                                 @endif
 
+                                    @if (Auth::user()->file)
+                                        <a class="dropdown-item" href="{{ route('uploadfile.show', ['user_id' => Auth::user()->id,'file_id' => Auth::user()->file->id]) }}">My File</a>
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('uploadfile.create', ['user_id' => Auth::user()->id]) }}">Create File</a>
+                                    @endif
 
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -80,7 +86,8 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                            </div>
+                            </a>
+                                </div>
                         </li>
                     @endguest
                 </ul>
