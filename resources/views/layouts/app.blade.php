@@ -72,7 +72,7 @@
                                     @if (Auth::user()->file)
                                         <a class="dropdown-item" href="{{ route('uploadfile.show', ['user_id' => Auth::user()->id,'file_id' => Auth::user()->file->id]) }}">My File</a>
                                     @else
-                                        <a class="dropdown-item" href="{{ route('uploadfile.create', ['user_id' => Auth::user()->id]) }}">Create File</a>
+                                        <a class="dropdown-item" href="{{ route('uploadfile.create', ['user_id' => Auth::user()->id]) }}">Upload File</a>
                                     @endif
 
 
